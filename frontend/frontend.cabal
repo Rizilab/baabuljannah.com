@@ -6,7 +6,10 @@ build-type: Simple
 library
   hs-source-dirs: src
   build-depends: base
+               , common
                , reflex-dom
+               , static
+               , obelisk-executable-config
                , text
                -- custom package
                , reflex
@@ -68,7 +71,7 @@ executable frontend
   --TODO: Make these ghc-options optional
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -fno-warn-unused-do-bind -fwarn-tabs -funbox-strict-fields -O2 -fprof-auto-calls -fexpose-all-unfoldings
   if os(darwin)
-    ghc-options: -dynamic
+     ghc-options: -dynamic
   if impl(ghcjs -any)
     ghc-options: -threaded -rtsopts -with-rtsopts=-N -fno-warn-unused-do-bind -fwarn-tabs -funbox-strict-fields -O2 -fprof-auto-calls -fexpose-all-unfoldings -dedupe
     cpp-options: -D_GHCJS_ -DGHCJS_GC_INTERVAL=60000 -DGHCJS_BROWSER

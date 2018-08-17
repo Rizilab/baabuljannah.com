@@ -1,6 +1,4 @@
-# Masaajidu - Web Aplikasi Manajemen Masjid
+# BAABULJANNAH.COM
+## Simple App for Mosque's Site with Obelisk
 
-## Latar Belakang
-TODO : Menjelaskan peruntukan aplikasi
-
-## 
+WARNING: THIS REPOSITORY IS UNDER DEVELOPMENT, CLONE WITH YOUR OWN RISK!!

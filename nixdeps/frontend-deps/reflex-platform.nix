@@ -14,4 +14,10 @@ let
   reflex-platform = sources.reflex-platform;
 
 in
+<<<<<<< HEAD
   reflex-platform
+=======
+  reflex-platform
+
+                                                                                                                       66
+>>>>>>> origin/master

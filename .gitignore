@@ -7,7 +7,6 @@ dist-ghcjs/
 dist-newstyle/
 frontend-result/
 
-
 # Javascript
 node_modules/
 jspm_packages/
@@ -67,3 +66,12 @@ lib*.pc
 /Release/
 /tmp_install/
 
+
+#Obelisk
+dist-newstyle
+result
+result-android
+result-ios
+result-exe
+.attr-cache
+ghcid-output.txt

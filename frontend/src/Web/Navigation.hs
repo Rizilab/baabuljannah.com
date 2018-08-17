@@ -19,6 +19,8 @@ import Reflex.Dom.Core
 import Data.Map (Map)
 import qualified Data.Map as Map
 
+import Static
+
 import UI.Base
 import Util.Bulma.Components.Navbar
 
@@ -30,7 +32,7 @@ mkNavbar = do
       divClass "navbar-brand" $ do
         elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/")]) $
           elClass "figure" "image is-128x128" $
-            elAttr "img" (Map.singleton "src" ("static/images/baabul_logo_new.jpg")) $ return ()
+            elAttr "img" (Map.singleton "src" (static @"images/baabul_logo_new.jpg")) $ return ()
         navbarBurger "a" "navMenuLanding"
     navbarMenu "div" burgerClick
   return ()

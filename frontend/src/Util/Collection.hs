@@ -3,12 +3,11 @@
 {-# LANGUAGE DataKinds #-}
 
 module Util.Collection (
-    headerHTML
-  , mkApp
-  , footerHTML
+    mkApp
   ) where
 
 import Reflex.Dom
+import Static
 
 import Data.Foldable (traverse_)
 import Data.Semigroup ((<>))
@@ -20,27 +19,27 @@ import qualified Data.Map as Map
 
 collectionCssFiles :: [Text]
 collectionCssFiles = [
-    "static/css/bulma.min.css"
-  , "static/css/all.min.css"
-  , "static/css/baabuljannah.min.css"
-  , "static/css/animate.min.css"
+    static @"css/bulma.min.css"
+  , static @"css/all.min.css"
+  , static @"css/baabuljannah.min.css"
+  , static @"css/animate.min.css"
   ]
 
 collectionJsFiles :: [Text]
 collectionJsFiles = []
 
-headerHTML :: MonadWidget t m => [Text] -> m ()
+headerHTML :: [Text] -> StaticWidget x ()
 headerHTML cssFiles = do
   el "title" $ text "Masjid Baabul Jannah"
-  elAttr "meta" ("charset" =: "utf-8") $ return ()
+  elAttr "meta" ("charset" =: "utf-8") blank
   elAttr "meta" ("name" =: "viewport" <>
-                 "content" =: "width=device-width, initial-scale=1, shrink-to-fit=no") $ return ()
+                 "content" =: "width=device-width, initial-scale=1, shrink-to-fit=no") blank
   let
     stylesheet src =
-      elAttr "link" (Map.fromList [("rel", "stylesheet"), ("href", src), ("type","text/css")]) $ return ()
+      elAttr "link" (Map.fromList [("rel", "stylesheet"), ("href", src)]) blank
   traverse_ stylesheet $ collectionCssFiles ++ cssFiles
 
-footerHTML :: MonadWidget t m => [Text] -> m ()
+footerHTML :: [Text] -> Widget x ()
 footerHTML jsFiles =
   let
     script src =
@@ -48,5 +47,5 @@ footerHTML jsFiles =
   in
     traverse_ script $ collectionJsFiles ++ jsFiles
 
-mkApp :: MonadWidget t m => [Text] -> [Text] -> m () -> (m (), m ())
+mkApp :: [Text] -> [Text] -> Widget x () -> (StaticWidget x (), Widget x ())
 mkApp cssFiles jsFiles widget = (headerHTML cssFiles, widget >> footerHTML jsFiles)
