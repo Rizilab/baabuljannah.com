@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell/parsec",
+  "rev": "610d7aa58bb5d436aac47b7c03fa6a0f8cb82ba7",
+  "date": "2018-04-19T19:29:16+02:00",
+  "sha256": "0rav7lfh133n0llrjgv4clxjnw8bqwpvybh2gmrv8dkhglad7zdk",
+  "fetchSubmodules": true
+}

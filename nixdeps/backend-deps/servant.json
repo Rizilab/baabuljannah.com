@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell-servant/servant",
+  "rev": "77ea599c63efbd9110b693e1f4e40aa4b98f8a10",
+  "date": "2018-06-19T22:27:34+03:00",
+  "sha256": "1g7pbmja95zcfby5pm5ahcvhl0nlg2lss16320x1abkchj76liv6",
+  "fetchSubmodules": true
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell-servant/servant-auth",
+  "rev": "27223a9584e7b279c4bf78d0c6dd70289028815d",
+  "date": "2018-06-19T13:43:46+01:00",
+  "sha256": "0ljqyh2pxbajcdsznpl0ipasm4r0amng1pnfh5afz5isfsnyv43a",
+  "fetchSubmodules": true
+}

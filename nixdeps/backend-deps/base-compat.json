@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell-compat/base-compat",
+  "rev": "0e2767e888e038febe65ea910a18ba1ed59cc876",
+  "date": "2018-06-03T18:24:24-04:00",
+  "sha256": "0d99q32pp7c2jh686cr9j9sqci4hcx8z0zp80f8c6mi2g8x17hrv",
+  "fetchSubmodules": true
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell/test-framework",
+  "rev": "ced5e8f18228c536578ec64659015e9b6c2b03e6",
+  "date": "2018-03-12T11:15:29+01:00",
+  "sha256": "1lvfg4321vzcf4xlls41ydl1dla4x6v0jd2kwzlv2jbma3s42gmm",
+  "fetchSubmodules": true
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell-servant/servant-blaze",
+  "rev": "2202896aa58fd7dc1529fcf59558b8462c8df1a7",
+  "date": "2018-06-21T20:26:31+03:00",
+  "sha256": "16hq4kn1idh5l6npvywv230a1fg5jgwhjqavijsa5wnnjxs70y2g",
+  "fetchSubmodules": true
+}

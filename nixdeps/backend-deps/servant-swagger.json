@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell-servant/servant-swagger",
+  "rev": "a8dd12ee7e4d8e0a68fb96a9f593c9dc492fa4a6",
+  "date": "2018-06-19T14:32:28+03:00",
+  "sha256": "14v49pqq80q5fb91sqda8yk3s2b2chvy332j8cxrj8vvvf9937vh",
+  "fetchSubmodules": true
+}

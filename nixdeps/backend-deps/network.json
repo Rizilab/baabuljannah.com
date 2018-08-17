@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/haskell/network",
+  "rev": "fe2d96ac140e0af6c6156b49c1905d6a499fbbc2",
+  "date": "2018-05-29T14:03:25+09:00",
+  "sha256": "0lpcw93ncsgb6n8i0c9w44kndvqz23yjfln3xrlps0yrcbnmnx0k",
+  "fetchSubmodules": true
+}
