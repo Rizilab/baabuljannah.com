@@ -30,8 +30,6 @@ import Control.Monad.Trans.Class
 import Control.Lens.Indexed
 
 
-import Static
-
 import UI.Base
 import Util.Button
 import Util.Bulma.Components.Navbar
@@ -40,7 +38,7 @@ pgLanding :: forall t m. MonadWidget t m
           => m ()
 pgLanding =
   elClass "div" "tile is-ancestor animated bounceInUp slower" $ do
-    elClass "div" "tile is-parent" $ heroLanding
+    elClass "div" "tile is-parent" heroLanding
     elClass "div" "tile is-parent is-8" $
       elAttr "div" (Map.singleton "class" "tile is-child box") $ do
         elAttr "div" (Map.singleton "class" "content") $
@@ -68,7 +66,7 @@ heroLanding = do
                  tabClicksList <- Map.elems <$> imapM (\k (s, _) -> headerBarLink s k $ demuxed currentTab (Just k)) tabItems
                  let eTabClicks = leftmost tabClicksList
                  fmap demux $ holdDyn t0 $ fmap Just eTabClicks
-     heroLandingBody tabItems "" --currentTab
+     heroLandingBody tabItems currentTab
   return ()
 
 heroLandingHead :: forall t m. (Reflex t, MonadWidget t m)
@@ -77,13 +75,13 @@ heroLandingHead = pure ()
 
 heroLandingBody :: forall m k t. (Ord k, Reflex t, MonadWidget t m)
                 => Map.Map k (Text, m ())
-                -> Text -- Demux t (Maybe k)
+                -> Demux t (Maybe k)
                 -> m ()
 heroLandingBody tabItems currentTab =
   divClass "hero-body" $
     divClass "container" $ do
       iforM_ tabItems $ \k (_, w) -> do
-        let isSelected = demuxed (demux $ constDyn Nothing) $ Just k
+        let isSelected = demuxed currentTab $ Just k
             attrs = ffor isSelected $ \s -> if s then Map.singleton "class" "content has-text-centered"
                                                  else Map.fromList [ ("class","content has-text-centered")
                                                                    , ("style","display:none;")]

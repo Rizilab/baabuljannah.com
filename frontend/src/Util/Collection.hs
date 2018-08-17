@@ -3,7 +3,9 @@
 {-# LANGUAGE DataKinds #-}
 
 module Util.Collection (
-    mkApp
+    headerHTML
+  , mkApp
+  , footerHTML
   ) where
 
 import Reflex.Dom
@@ -30,12 +32,12 @@ collectionJsFiles = []
 headerHTML :: MonadWidget t m => [Text] -> m ()
 headerHTML cssFiles = do
   el "title" $ text "Masjid Baabul Jannah"
-  elAttr "meta" ("charset" =: "utf-8") blank
+  elAttr "meta" ("charset" =: "utf-8") $ return ()
   elAttr "meta" ("name" =: "viewport" <>
-                 "content" =: "width=device-width, initial-scale=1, shrink-to-fit=no") blank
+                 "content" =: "width=device-width, initial-scale=1, shrink-to-fit=no") $ return ()
   let
     stylesheet src =
-      elAttr "link" (Map.fromList [("rel", "stylesheet"), ("href", src)]) blank
+      elAttr "link" (Map.fromList [("rel", "stylesheet"), ("href", src), ("type","text/css")]) $ return ()
   traverse_ stylesheet $ collectionCssFiles ++ cssFiles
 
 footerHTML :: MonadWidget t m => [Text] -> m ()

@@ -20,8 +20,6 @@ import Reflex.Dom.Core
 import Data.Map (Map)
 import qualified Data.Map as Map
 
-import Static
-
 import UI.Base
 import Util.Button
 import Util.Bulma.Components.Navbar

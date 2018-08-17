@@ -110,13 +110,6 @@ instance MonadState s m => MonadState s (AppT t m) where
   get = lift get
   put = lift . put
 
-{-instance Monad m => MonadReader Text (AppT t m) where
-  ask = AppT . lift . lift . lift $ ask
-  -- RouteWriterT t RouteWidget (RouteT t RouteWidget (StorageT t CredentialTag (ReaderT Text m))) a
-  -- t2                         ( t1                  ( t                       (m             ))) r
-  local f = AppT . local f . unAppT
-  reader = AppT . lift . reader
---}
 instance (Reflex t, Monad m, MonadHold t m) => HasStorage t CredentialTag (AppT t m) where
   askStorage = AppT . lift . lift $ askStorage
   tellStorage = AppT . lift . lift . tellStorage

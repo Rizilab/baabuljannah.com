@@ -19,12 +19,10 @@ import Reflex.Dom.Core
 import Data.Map (Map)
 import qualified Data.Map as Map
 
-import Static
-
 import UI.Base
 import Util.Bulma.Components.Navbar
 
 mkFooter :: forall t m. MonadWidget t m
           => m ()
 mkFooter =
-  elClass "" "animated bounceInDown slower" $ return ()
+  elClass "div" "animated bounceInDown slower" $ return ()

@@ -14,10 +14,10 @@ let
   # inspired by obelisk's default.nix
   getReflexPlatform = sys: import (import ./nixdeps/frontend-deps/reflex-platform.nix) { inherit iosSdkVersion; system = sys; };
   reflex-platform = getReflexPlatform system;
-  frontend-unminified =
-    (reflex-platform.project ({ pkgs, ... }: {
+  frontend-unminified = {}:
+    reflex-platform.project ({ pkgs, ... }: {
       packages = {
-        frontend = ./frontend/.;
+        frontend = ./frontend;
 
       };
 
@@ -28,17 +28,27 @@ let
       overrides = self: super:
         let
           fast = p: pkgs.haskell.lib.dontHaddock (pkgs.haskell.lib.dontCheck p);
-        in rec {
-          reflex-dom-contrib = self.callCabal2nix "reflex-dom-contrib"
-            (pkgs.fetchFromGitHub {
-             owner  = "reflex-frp";
-             repo   = "reflex-dom-contrib";
-             rev    = "b47f90c810c838009bf69e1f8dacdcd10fe8ffe3";
-             sha256 = "0yvjnr9xfm0bg7b6q7ssdci43ca2ap3wvjhshv61dnpvh60ldsk9";
-            }) {};
+          reflex-dom-nested-routing  = ../reflex-dom-nested-routing;
+          reflex-dom-storage-version = pkgs.lib.importJSON ./nixdeps/reflex-dom-storage.json;
+          reflex-dom-storage = pkgs.fetchFromGitHub {
+            owner = "qfpl";
+            repo  = "reflex-dom-storage";
+            inherit (reflex-dom-storage-version) rev sha256;
+          };
+          reflex-dom-contrib-version = pkgs.lib.importJSON ./nixdeps/reflex-dom-contrib.json;
+          reflex-dom-contrib = pkgs.fetchFromGitHub {
+            owner = "reflex-frp";
+            repo = "reflex-dom-contrib";
+            inherit (reflex-dom-contrib-version) rev sha256;
+          };
+
+        in {
+          reflex-dom-storage = self.callCabal2nix "reflex-dom-storage" reflex-dom-storage {};
+          reflex-dom-nested-routing = self.callCabal2nix "reflex-dom-nested-routing" reflex-dom-nested-routing {};
+          reflex-dom-contrib = fast (super.callCabal2nix "reflex-dom-contrib" reflex-dom-contrib {});
           frontend = fast super.frontend;
         };
-    })).ghcjs.frontend;
+    });
 
 
 #TODO : Refactor needed to separate package form its dependencies ref: todomvc-nix
@@ -144,9 +154,10 @@ in
    # Frontend Webapp
    
    riziFrontend = frontend-unminified;
-   riziFrontend-static = static frontend-unminified; 
+   #riziFrontend-static = static frontend-unminified;
 
    # Docker for backend-server
    docker-exe-static = newPkgs.callPackage ./dockers/backend-exe.nix { static = true;  };
    docker-exe        = newPkgs.callPackage ./dockers/backend-exe.nix { static = false; };
+
  }

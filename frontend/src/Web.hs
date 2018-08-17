@@ -25,7 +25,6 @@ import Data.Text
 
 import Reflex.Dom.Routing.Writer
 import Reflex.Dom.Routing.Nested
-import Static
 
 import Types.RouteWidget
 import UI.Base
