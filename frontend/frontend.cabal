@@ -35,7 +35,10 @@ library
   exposed-modules:
     Frontend
   other-modules:
-      UI
+      Types.RouteWidget
+    , UI
+    , UI.Base
+    , UI.Storage
     , Util.Button
     , Util.Collection
     , Util.Bulma.Components.Navbar

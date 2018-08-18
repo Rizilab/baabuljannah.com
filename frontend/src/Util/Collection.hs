@@ -23,6 +23,7 @@ collectionCssFiles = [
   , static @"css/all.min.css"
   , static @"css/baabuljannah.min.css"
   , static @"css/animate.min.css"
+  , static @"css/style.min.css"
   ]
 
 collectionJsFiles :: [Text]

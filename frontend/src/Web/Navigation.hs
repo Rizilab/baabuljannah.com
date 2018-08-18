@@ -27,7 +27,7 @@ import Util.Bulma.Components.Navbar
 mkNavbar :: forall t m. WebUiM t m
          => m ()
 mkNavbar = do
-  elClass "nav" "navbar animated bounceInDown slower" $ do
+  elClass "nav" "navbar box animated bounceInDown slower" $ do
     burgerClick <-
       divClass "navbar-brand" $ do
         elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/")]) $

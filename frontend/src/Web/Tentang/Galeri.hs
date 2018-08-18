@@ -27,14 +27,5 @@ import Util.Bulma.Components.Navbar
 pgTentangGaleri :: forall t m. MonadWidget t m
           => m ()
 pgTentangGaleri =
-  elClass "div" "tile is-ancestor animated bounceInU slower" $ do
-    elClass "div" "tile is-parent" $
-      el "h1" $ text "Media Berita"
-    elClass "div" "tile is-parent is-8" $
-      elAttr "div" (Map.singleton "class" "tile is-child box") $ do
-        elAttr "div" (Map.singleton "class" "content") $
-          elAttr "iframe" (Map.fromList [("src","https://jam.jadwalsholat.org/digitalclock/")]) $ return ()
-        elAttr "div" (Map.singleton "class" "content") $
-          elAttr "iframe" (Map.fromList [("src","https://www.jadwalsholat.org/adzan/ajax.row.php?id=67")]) $ return ()
-        return ()
+  elClass "div" "tile animated bounceInUp slower" $ do
     return ()

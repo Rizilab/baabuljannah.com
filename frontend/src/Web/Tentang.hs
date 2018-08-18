@@ -12,7 +12,12 @@
 
 
 module Web.Tentang (
-  pgTentang
+    pgTentang
+  , pgTentangVisiMisi
+  , pgTentangSejarah
+  , pgTentangLaporanTahunan
+  , pgTentangDKM
+  , pgTentangGaleri
 ) where
 
 import Reflex.Dom.Core
@@ -24,18 +29,15 @@ import Static
 import UI.Base
 import Util.Button
 import Util.Bulma.Components.Navbar
+import Web.Tentang.VisiMisi (pgTentangVisiMisi)
+import Web.Tentang.Sejarah (pgTentangSejarah)
+import Web.Tentang.LaporanTahunan (pgTentangLaporanTahunan)
+import Web.Tentang.DKM (pgTentangDKM)
+import Web.Tentang.Galeri (pgTentangGaleri)
 
 pgTentang :: forall t m. MonadWidget t m
           => m ()
 pgTentang =
-  elClass "div" "tile is-ancestor animated bounceInU slower" $ do
-    elClass "div" "tile is-parent" $
-      el "p" $ text "Tentang Summary"
-    elClass "div" "tile is-parent is-8" $
-      elAttr "div" (Map.singleton "class" "tile is-child box") $ do
-        elAttr "div" (Map.singleton "class" "content") $
-          elAttr "iframe" (Map.fromList [("src","https://jam.jadwalsholat.org/digitalclock/")]) $ return ()
-        elAttr "div" (Map.singleton "class" "content") $
-          elAttr "iframe" (Map.fromList [("src","https://www.jadwalsholat.org/adzan/ajax.row.php?id=67")]) $ return ()
-        return ()
+  elClass "div" "tile animated slideInRight slower" $ do
+    el "p" $ text "Ini untuk halaman tentang"
     return ()

@@ -32,8 +32,9 @@ import Web
 
 mkUi :: forall t m. MonadWidget t m
      => m ()
-mkUi = elClass "section" "section" $ runAppT $ do
+mkUi = runAppT $ do
   mkNavbar
   mkWeb
+  elAttr "hr" (Map.fromList [("class","navbar-divider"),("style","background-color: transparent")]) $ pure ()
   mkFooter
   return ()
