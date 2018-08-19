@@ -27,7 +27,7 @@ collectionCssFiles = [
   ]
 
 collectionJsFiles :: [Text]
-collectionJsFiles = []
+collectionJsFiles = ["https://addevent.com/libs/atc/1.6.1/atc.min.js"]
 
 headerHTML :: [Text] -> StaticWidget x ()
 headerHTML cssFiles = do
@@ -44,7 +44,7 @@ footerHTML :: [Text] -> Widget x ()
 footerHTML jsFiles =
   let
     script src =
-      elAttr "script" ("src" =: src) blank
+      elAttr "script" (Map.fromList [("src", src),("type","text/javascript")]) blank
   in
     traverse_ script $ collectionJsFiles ++ jsFiles
 

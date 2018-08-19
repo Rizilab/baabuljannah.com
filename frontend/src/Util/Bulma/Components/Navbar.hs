@@ -55,6 +55,8 @@ navbarMenuStart :: forall t m. MonadWidget t m
           -> m ()
 navbarMenuStart elm =
   elAttr elm (Map.singleton "class" "navbar-start") $ do
+    elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/#")]) $
+        text "Beranda"
     elAttr "div" (Map.fromList [("class", "navbar-item has-dropdown is-hoverable")]) $ do
       elAttr "a" (Map.fromList [("class", "navbar-link"), ("href", "/#Tentang")]) $
         text "Tentang"
@@ -71,20 +73,8 @@ navbarMenuStart elm =
           text "Galeri"
         return ()
       return ()
-    elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/#Aktivitas")]) $
-        text "Aktivitas"
-    elAttr "div" (Map.fromList [("class", "navbar-item has-dropdown is-hoverable")]) $ do
-      elAttr "a" (Map.fromList [("class", "navbar-link"), ("href", "/#Media")]) $
-        text "Media"
-      elAttr "div" (Map.singleton "class" "navbar-dropdown") $ do
-        elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/#Media/Berita")]) $
-          text "Berita"
-        elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/#Media/Publikasi")]) $
-          text "Publikasi"
-        elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/#Media/SiaranPers")]) $
-          text "Siaran Pers"
-        return ()
-      return ()
+    elAttr "a" (Map.fromList [("class", "navbar-item"), ("href", "/#Berita")]) $
+        text "Berita"
     return ()
 
 navbarMenuEnd :: forall t m. MonadWidget t m

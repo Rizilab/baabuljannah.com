@@ -28,5 +28,16 @@ import Util.Bulma.Components.Navbar
 pgTentangSejarah :: forall t m. MonadWidget t m
           => m ()
 pgTentangSejarah =
-  elClass "div" "tile animated bounceInUp slower" $ do
+  elClass "section" "section box animated zoomIn fast" $ do
+    divClass "container" $
+      divClass "tile is-ancestor" $ do
+        divClass "tile is-parent is-8" $
+          divClass "content" $ do
+            elClass "h1" "title is-1" $ text "Sejarah Masjid Baabul Jannah"
+            elClass "h3" "subtitle" $ text "Sejarah singkat masjid baabul jannah"
+            el "p" $ text "Masjid Baabul Jannah didirikan pada tahun 1997 ......"
+        divClass "tile is-parent is-4" $
+          elClass "figure" "image is-3By4" $
+            elAttr "img" (Map.fromList [("src","https://bulma.io/images/placeholders/480x640.png")]) $ pure ()
+        return ()
     return ()

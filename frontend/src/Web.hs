@@ -42,15 +42,6 @@ mkWeb :: forall t m. (WebUiM t m)
 mkWeb =
   void $ withRoute $ \route -> case fromMaybe (Widget "") route of
     Widget "Tentang"   -> pgTentang
-    Widget "Tentang/VisiMisi" -> pgTentangVisiMisi
-    Widget "Tentang/Sejarah"  -> pgTentangSejarah
-    Widget "Tentang/LaporanTahunan" -> pgTentangLaporanTahunan
-    Widget "Tentang/DKM" -> pgTentangDKM
-    Widget "Tentang/Galeri" -> pgTentangGaleri
-    Widget "Aktivitas" -> pgAktivitas
-    Widget "Media"     -> pgMedia
-    Widget "Media/Berita" -> pgMediaBerita
-    Widget "Media/Publikasi" -> pgMediaPublikasi
-    Widget "Media/SiaranPers" -> pgMediaSiaranPers
+    Widget "Berita"    -> pgBerita
     Widget ""          -> pgLanding
     Widget _           -> tellRedirectLocally [Widget ""]

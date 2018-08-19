@@ -113,9 +113,9 @@ tileRight =
         elAttr "p" (Map.singleton "class" "title is-4") $ text "Berita Terbaru"
         elAttr "hr" (Map.singleton "class" "navbar-divider landing-divider") $ pure ()
         elAttr "ul" (Map.singleton "class" "content landing-recent") $ do
-          el "li" $ elAttr "a" (Map.fromList [("class","landing-news"),("href","#/Media/Berita")]) $ text "Kajian Syuruq"
-          el "li" $ elAttr "a" (Map.fromList [("class","landing-news"),("href","#/Media/Berita")]) $ text "Kajian Ummahat"
-          el "li" $ elAttr "a" (Map.fromList [("class","landing-news"),("href","#/Media/Berita")]) $ text "Waktu Sholat Iedul Adha"
+          el "li" $ elAttr "a" (Map.fromList [("class","landing-news"),("href","/#Berita")]) $ text "Kajian Syuruq"
+          el "li" $ elAttr "a" (Map.fromList [("class","landing-news"),("href","/#Berita")]) $ text "Kajian Ummahat"
+          el "li" $ elAttr "a" (Map.fromList [("class","landing-news"),("href","/#Berita")]) $ text "Waktu Sholat Iedul Adha"
           return ()
         return ()
       return ()
@@ -130,45 +130,56 @@ nextEvent =
       elAttr "p" (Map.singleton "class" "title is-4") $ text "Event Berikutnya"
       elAttr "hr" (Map.singleton "class" "navbar-divider landing-divider") $ pure ()
       divClass "card box" $ do
-        elAttr "a" (Map.fromList [("class","card-header"),("href","#/Aktivitas")]) $
+        elAttr "a" (Map.fromList [("class","card-header"),("href","/#Aktivitas")]) $
           elAttr "div" (Map.fromList [("class","card-image")
                                      ,("style","background-image: url(https://d1csp7g2pnyvdv.cloudfront.net/uploads/story_world/cover/6/large_5b45e687-80f9-41a3-b57e-35d55147742a.jpg);")
                                      ]
                        ) $ pure ()
         divClass "card-body" $ do
-          elAttr "a" (Map.singleton "href" "#/Aktivitas") $
+          elAttr "a" (Map.singleton "href" "/#Aktivitas") $
             divClass "card-title" $ do
               elAttr "p" (Map.singleton "class" "title is-6") $ text "Kajian Syuruq:"
               elAttr "p" (Map.singleton "class" "subtitle") $ text "Menggapai Ridho Ilahi"
           divClass "card-description" $
-            el "p" $ text "Ridho ilahi adalah salah satu pencapaian yang sangat diinginkan oleh umat Islam."
+            el "p" $ text "Pemateri: Ust. Sirojudin"
           return ()
 
         divClass "card-footer" $
-          elAttr "a" (Map.fromList [("class","button is-link is-outlined")
-                                   ,("href","#Aktivitas")
-                                   ]) $ text "Baca Selengkapnya"
+          elAttr "div" (Map.fromList [("class","button is-link is-outlined addeventatc"),("title","Tambahkan ke Kalender")]) $ do
+            elClass "span" "start" $ text "08/26/2018 04:30"
+            elClass "span" "end" $ text "08/26/2018 06:00"
+            elClass "span" "timezone" $ text "Asia/Jakarta"
+            elClass "span" "title" $ text "Kajian Syuruq: Menggapai Ridho Ilahi"
+            elClass "span" "description" $ text "Kajian ba'da subuh sampai syuruq"
+            elClass "span" "location" $ text "Masjid Baabul Jannah"
+            text "Simpan Tanggal"
         return ()
       ----------------------
       divClass "card box" $ do
-        elAttr "a" (Map.fromList [("class","card-header"),("href","#/Aktivitas")]) $
+        elAttr "a" (Map.fromList [("class","card-header"),("href","/#Aktivitas")]) $
           elAttr "div" (Map.fromList [("class","card-image")
                                       ,("style","background-image: url(https://d1csp7g2pnyvdv.cloudfront.net/uploads/story_world/cover/6/large_5b45e687-80f9-41a3-b57e-35d55147742a.jpg);")
                                      ]
                        ) $ pure ()
         divClass "card-body" $ do
-          elAttr "a" (Map.singleton "href" "#/Aktivitas") $
+          elAttr "a" (Map.singleton "href" "/#Aktivitas") $
             divClass "card-title" $ do
               elAttr "p" (Map.singleton "class" "title is-6") $ text "Kajian Parenting:"
               elAttr "p" (Map.singleton "class" "subtitle") $ text "Al-qur'an Untuk Anak"
           divClass "card-description" $
-            el "p" $ text "Anak adalah titipan Allah yang harus selalu dijaga"
+            el "p" $ text "Pemateri: Ust. Dadan R."
           return ()
 
         divClass "card-footer" $
-          elAttr "a" (Map.fromList [("class","button is-link is-outlined")
-                                   ,("href","#Aktivitas")
-                                   ]) $ text "Baca Selengkapnya"
+          elAttr "div" (Map.fromList [("class","button is-link is-outlined addeventatc"),("title","Tambahkan ke Kalender")]) $ do
+            elClass "span" "start" $ text "08/25/2018 16:00"
+            elClass "span" "end" $ text "08/25/2018 18:00"
+            elClass "span" "timezone" $ text "Asia/Jakarta"
+            elClass "span" "title" $ text "Kajian Parenting: Al-qur'an untuk anak"
+            elClass "span" "description" $ text "Kajian ba'da ashar untuk keluarga"
+            elClass "span" "location" $ text "Masjid Baabul Jannah"
+            text "Simpan Tanggal"
+
         return ()
       return ()
 

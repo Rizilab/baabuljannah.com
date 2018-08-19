@@ -28,5 +28,13 @@ import Util.Bulma.Components.Navbar
 pgTentangLaporanTahunan :: forall t m. MonadWidget t m
           => m ()
 pgTentangLaporanTahunan =
-  elClass "div" "tile animated bounceInUp slower" $ do
-    return ()
+  elClass "section" "hero is-medium animated is-light is-bold slideInRight slower" $
+    divClass "hero-body" $
+      divClass "container" $ do
+        divClass "columns is-centered" $ do
+          divClass "column is-half" $
+            elAttr "a" (Map.fromList [("href","/#"),("class","content")]) $ do
+              elAttr "h3" (Map.singleton "class" "title is-3") $ text "Halaman ini sedang dalam perbaikan, silahkan kembali lagi nanti"
+              return ()
+          return ()
+        return ()
