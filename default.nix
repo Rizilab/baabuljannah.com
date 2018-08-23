@@ -20,7 +20,12 @@ project ./. ({ ... }: {
       ################
       #frontend stuff#
       ################
-      reflex-dom-nested-routing  = ../reflex-dom-nested-routing;
+      reflex-dom-nested-routing-version  = nixpkgs.pkgs.lib.importJSON ./nixdeps/reflex-dom-nested-routing.json;
+      reflex-dom-nested-routing = nixpkgs.pkgs.fetchFromGitHub {
+        owner = "rizilab";
+        repo  = "reflex-dom-nested-routing";
+        inherit (reflex-dom-nested-routing-version) rev sha256;
+      };
       reflex-dom-storage-version = nixpkgs.pkgs.lib.importJSON ./nixdeps/reflex-dom-storage.json;
       reflex-dom-storage = nixpkgs.pkgs.fetchFromGitHub {
         owner = "qfpl";
