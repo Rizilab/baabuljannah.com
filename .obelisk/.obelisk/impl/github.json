@@ -1,7 +1,9 @@
 {
-  "owner": "obsidiansystems",
-  "repo": "obelisk",
-  "branch": "master",
-  "rev": "6609cc49697152b222dabd474ebf45dd4adda1f1",
-  "sha256": "1kyaqlnwiphc7apsdaws4lxivbh38l5px1iirrad8xxdq8aq2khq"
+  "owner": "Rizary",
+  "repo": "rhyolite",
+  "url": "https://github.com/Rizary/rhyolite.git",
+  "rev": "59e782be8776e217d9893d0fe2e7c6f880f5ddbf",
+  "date": "2019-12-04T16:15:14-05:00",
+  "sha256": "0aaf5izmydwkrf2dzxsqbp302jqdy4dfkrchqqghig9f5ip7mkq0",
+  "fetchSubmodules": true
 }
